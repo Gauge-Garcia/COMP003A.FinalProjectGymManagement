@@ -64,5 +64,58 @@
                 }
             }
         }
+
+        static void AddMember(List<Member> members, int memberType)
+        {
+            try
+            {
+                Console.Write($"Enter the id of the member: ");
+                string id = Console.ReadLine();
+
+                Console.Write($"Enter the first name of the member: ");
+                string firstName = Console.ReadLine();
+
+                Console.Write($"Enter the middle name of the member: ");
+                string middleName = Console.ReadLine();
+
+                Console.Write($"Enter the last name of the member: ");
+                string lastName = Console.ReadLine();
+
+                Console.Write($"Enter the age of the member: ");
+                int age = int.Parse(Console.ReadLine());
+
+                Console.Write($"Enter the type of the member: (1. Powerlifter, 2. Bodybuilder, or 3. Casual) ");
+                memberType = int.Parse(Console.ReadLine());
+
+
+                if (memberType == 1)
+                {
+                    members.Add(new Powerlifter(id, firstName, middleName, lastName, age));
+                    Console.WriteLine(" Powerlifter added successfully!");
+                }
+                else if (memberType == 2)
+                {
+                    members.Add(new BodyBuilder(id, firstName, middleName, lastName, age));
+                    Console.WriteLine(" Bodybuilder added successfully!");
+                }
+                else if (memberType == 3)
+                {
+                    members.Add(new Casual(id, firstName, middleName, lastName, age));
+                    Console.WriteLine("Gym Casual added successfully!");
+                }
+                else
+                {
+                    Console.WriteLine("Member Type not recognized, please try again.");
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid Input!");
+            }
+        }
     }
 }

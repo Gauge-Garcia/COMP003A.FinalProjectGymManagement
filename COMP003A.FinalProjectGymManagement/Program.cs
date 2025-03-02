@@ -132,5 +132,13 @@
                 Console.WriteLine("Member Removed!");
             }
         }
+        static void DisplayMembers(List<Member> members)
+        {
+            Console.WriteLine("\nDisplaying all members");
+            foreach (Member member in members)
+            {
+                member.DisplayInfo();
+            }
+        }
     }
 }

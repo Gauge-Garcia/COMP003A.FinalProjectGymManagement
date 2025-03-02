@@ -6,7 +6,39 @@ using System.Threading.Tasks;
 
 namespace COMP003A.FinalProjectGymManagement
 {
-    internal class PowerLifter
+    /// <summary>
+    /// This is the Casual Class. We will build our Bodybuilder using the Base member class!
+    /// </summary>
+    public class Powerlifter : Member
     {
+        public Powerlifter(string id, string firstName, string lastName, string middleName, int age) : base(id, firstName, lastName, middleName, age)
+        { }
+        /// <summary>
+        /// This is the implementation of the PrintFullName method initialized in the Member Class
+        /// </summary>
+        public override void PrintFullName()
+        {
+            //Checks for middle name and designs output based on if middle name is applied or not.
+            if (string.IsNullOrEmpty(MiddleName))
+            {
+                Console.WriteLine($"Member Name: {FirstName} {LastName}");
+            }
+            else
+            {
+                Console.WriteLine($"Member Name: {FirstName} {MiddleName} {LastName}");
+
+            }
+        }
+        /// <summary>
+        /// This is the implementation of the DiplayInfo method initialized in the Member Class
+        /// </summary>
+        public override void DisplayInfo()
+        {
+            // Organizes outputs into a single method.
+            Console.WriteLine($"Member ID: {Id}");
+            PrintFullName();
+            Console.WriteLine($"Age: {Age}");
+            Console.WriteLine("Memmber type: Powerlifter (Lifts as heavy as possible)\n");
+        }
     }
 }

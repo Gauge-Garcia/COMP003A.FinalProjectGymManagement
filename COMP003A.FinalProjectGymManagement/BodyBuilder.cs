@@ -35,6 +35,7 @@ namespace COMP003A.FinalProjectGymManagement
         /// </summary>
         public override void DisplayInfo()
         {
+            // Organizes outputs into a single method.
             Console.WriteLine($"Member ID: {Id}");
             PrintFullName();
             Console.WriteLine($"Age: {Age}");

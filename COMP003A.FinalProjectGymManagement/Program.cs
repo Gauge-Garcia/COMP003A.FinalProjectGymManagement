@@ -117,5 +117,20 @@
                 Console.WriteLine("Invalid Input!");
             }
         }
+
+        static void RemoveMember(List<Member> members, string _memberId)
+        {
+            Member member = members.Find(m => m.Id == _memberId);
+
+            if (member == null)
+            {
+                Console.WriteLine("Member not found");
+            }
+            else
+            {
+                members.Remove(member);
+                Console.WriteLine("Member Removed!");
+            }
+        }
     }
 }
